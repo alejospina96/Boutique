@@ -96,7 +96,7 @@ public class Venta implements Serializable {
 
 	public void vender(Producto p) {
 		productosVendidos.add(p);
-		valor += p.darPrecioVenta();
+		valor += p.darValorTotal();
 	}
 
 	public void generarFactura(long numFact) {
