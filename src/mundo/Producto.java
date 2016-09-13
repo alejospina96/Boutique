@@ -42,6 +42,9 @@ public class Producto implements Serializable {
 		this.talla = p.talla;
 		this.tela = p.tela;
 	}
+	public double darPrecioTotal(){
+		return precioVenta*cantidad;
+	}
 	/** @pdOid ac534ae2-e5bf-493f-a25e-0296f2e8d36a */
 	   private String referencia;
 	   /** @pdOid e89e7162-01cf-4e28-a2d4-4ab7852fe0b3 */
