@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Inventario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<subDataset name="datasetReferencia" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetNombre" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetColores">
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetTallas">
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetPreciosC" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetPreciosVenta" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetMarcas" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="datasetelas">
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset1" >
+		<field name="field1" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="dataset2" >
+		<field name="_THIS" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="referencias" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="nombres" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="colores" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tallas" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="preciosC" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList(2000,10000,3000)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="preciosV" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList(2000,10000,3000)]]></defaultValueExpression>
+	</parameter>
+	<parameter name="marcas" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="telas" class="java.util.List">
+		<defaultValueExpression><![CDATA[Arrays.asList("Hola1","hola2","hola3")]]></defaultValueExpression>
+	</parameter>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="70" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="0" y="4" width="313" height="33" />
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Reporte de inventario]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="21" y="0" width="292" height="36" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Productos en existencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="172" y="44" width="59" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COLOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="513" y="44" width="42" height="20" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TALLA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="338" y="44" width="79" height="20" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR VENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="417" y="44" width="96" height="20" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR COMPRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="44" width="52" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[MARCA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="283" y="44" width="55" height="20" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="44" width="102" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="44" width="72" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REFERENCIA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="56" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<componentElement>
+				<reportElement x="72" y="15" width="102" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetNombre" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{nombres})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="102">
+						<textField>
+							<reportElement x="0" y="0" width="102" height="21" />
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="174" y="15" width="57" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetColores" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{colores})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="57">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="1" width="57" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="231" y="15" width="52" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetMarcas">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{marcas})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="52">
+						<textField>
+							<reportElement x="0" y="1" width="52" height="20"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="417" y="15" width="96" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetPreciosC" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{preciosC})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="96">
+						<textField>
+							<reportElement x="0" y="1" width="96" height="20"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="338" y="15" width="79" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetPreciosVenta" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{preciosV})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="79">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="1" width="79" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="283" y="15" width="55" height="27" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetelas" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{telas})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="27" width="55">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="1" width="55" height="20"/>
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="513" y="16" width="42" height="26" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="datasetTallas" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{tallas})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="26" width="42">
+						<textField isBlankWhenNull="true">
+							<reportElement x="0" y="0" width="40" height="20" />
+							<textElement textAlignment="Center" verticalAlignment="Middle"/>
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<componentElement>
+				<reportElement x="0" y="16" width="72" height="26" />
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="dataset2" >
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($P{referencias})]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="26" width="72">
+						<textField>
+							<reportElement x="0" y="0" width="72" height="20" />
+							<textFieldExpression><![CDATA[$F{_THIS}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" />
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" />
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" />
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
